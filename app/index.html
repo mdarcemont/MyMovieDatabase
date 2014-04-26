@@ -1,0 +1,56 @@
+---
+layout: default
+title: Movie stats
+styles: [/webjars/bootstrap/3.1.1/css/bootstrap.css, template.css]
+ng-app: movieStats
+---
+<div ng-controller="MovieStatsController">
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Movie stats</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="directors">
+            <h1>Directors in the spotlight today</h1>
+            <div class="col-xs-6 col-md-2">
+                <a ng-click="showDirector(5763)" class="thumbnail">
+                    <img src="http://image.tmdb.org/t/p/w185/v7mgMICZsziH0jT1i7htNRIO2Og.jpg" alt="Jacques Tati">
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-2">
+                <a ng-click="showDirector(2636)" class="thumbnail">
+                    <img src="http://image.tmdb.org/t/p/w185/ezvFh9lBCp9CFNMW6dsTLGhn3Lv.jpg" alt="Alfred Hitchcock">
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-2">
+                <a ng-click="showDirector(240)" class="thumbnail">
+                    <img src="http://image.tmdb.org/t/p/w185/26PWfKliwIsA2f4sIWeJRNnPgVC.jpg" alt="Stanley Kubrick">
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-2">
+                <a ng-click="showDirector(8500)" class="thumbnail">
+                    <img src="http://image.tmdb.org/t/p/w185/nwkPz2ytSBiv1zFhrcg4kYJIK3d.jpg" alt="John Ford">
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-2">
+                <a ng-click="showDirector(1150)" class="thumbnail">
+                    <img src="http://image.tmdb.org/t/p/w185/c61HFkgbl61KzvwAvuuROgn7nqv.jpg" alt="Brian De Palma">
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-2">
+                <a ng-click="showDirector(11770)" class="thumbnail">
+                    <img src="http://image.tmdb.org/t/p/w185/5Xv3IyZaXJ2qw4ZgRmuIcdtU8xU.jpg" alt="John Carpenter">
+                </a>
+            </div>
+
+            {{director}}
+        </div>
+    </div>
+</div>
+
+<script src="/webjars/angularjs/1.2.16/angular.min.js"></script>
+<script src="app.js"></script>

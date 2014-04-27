@@ -1,8 +1,7 @@
-package com.mdarcemont.javaangular;
+package com.mdarcemont.mymoviedatabase;
 
-import com.mdarcemont.javaangular.models.Director;
-import com.mdarcemont.javaangular.resources.DirectorResource;
-import com.mdarcemont.javaangular.resources.MovieResource;
+import com.mdarcemont.mymoviedatabase.resources.DirectorResource;
+import com.mdarcemont.mymoviedatabase.resources.MovieResource;
 import net.codestory.http.WebServer;
 
 public class Main {

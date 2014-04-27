@@ -1,6 +1,6 @@
-package com.mdarcemont.javaangular.resources;
+package com.mdarcemont.mymoviedatabase.resources;
 
-import com.mdarcemont.javaangular.models.Movie;
+import com.mdarcemont.mymoviedatabase.models.Movie;
 import net.codestory.http.annotations.Get;
 import org.json.JSONException;
 import org.json.JSONObject;

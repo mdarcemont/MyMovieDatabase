@@ -1,4 +1,4 @@
-package com.mdarcemont.javaangular.resources;
+package com.mdarcemont.mymoviedatabase.resources;
 
 import org.json.JSONObject;
 

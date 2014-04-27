@@ -1,7 +1,6 @@
-package com.mdarcemont.javaangular.models;
+package com.mdarcemont.mymoviedatabase.models;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Optional;
 
 public class Director {

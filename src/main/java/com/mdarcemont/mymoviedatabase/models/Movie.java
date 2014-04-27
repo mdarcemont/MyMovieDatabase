@@ -1,4 +1,4 @@
-package com.mdarcemont.javaangular.models;
+package com.mdarcemont.mymoviedatabase.models;
 
 import java.time.LocalDate;
 

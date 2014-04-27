@@ -57,7 +57,7 @@ public class DirectorResource {
                 .sorted((m1, m2) -> m1.getMovie().getReleaseDate().compareTo(m2.getMovie().getReleaseDate()))
                 .collect(
                         Collectors.groupingBy(
-                                Role::getJob,
+                                (Role r) -> r.getJob(),
                                 Collectors.mapping(
                                         (Role r) -> r.getMovie(),
                                         Collectors.toList()

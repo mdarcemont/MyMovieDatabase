@@ -8,6 +8,13 @@
     <artifactId>mymoviedatabase</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <main.class>com.mdarcemont.mymoviedatabase.Main</main.class>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.webjars</groupId>

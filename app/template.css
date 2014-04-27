@@ -1,0 +1,25 @@
+body {
+    padding-top: 50px;
+}
+.directors {
+    padding: 40px 15px;
+}
+
+a {
+    cursor: pointer;
+}
+
+.ng-hide-add {
+    display:block!important;
+    transition: 0s;
+}
+.ng-hide-remove {
+    display:block!important;
+    transition: 0.5s;
+}
+
+.ng-hide {
+    line-height:0;
+    opacity:0;
+    padding:0 10px;
+}

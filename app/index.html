@@ -1,0 +1,155 @@
+---
+layout: default
+title: Movie stats
+styles: [/webjars/bootstrap/3.1.1/css/bootstrap.css, template.css]
+ng-app: movieStats
+---
+<div ng-controller="MovieStatsController">
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Movie stats</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="directors">
+            <div class="row text-center">
+                <div class="col-xs-6 col-md-2">
+                    <a ng-click="showDirector(5763)" class="thumbnail">
+                        <img src="http://image.tmdb.org/t/p/w185/v7mgMICZsziH0jT1i7htNRIO2Og.jpg" alt="Jacques Tati">
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-2">
+                    <a ng-click="showDirector(2636)" class="thumbnail">
+                        <img src="http://image.tmdb.org/t/p/w185/ezvFh9lBCp9CFNMW6dsTLGhn3Lv.jpg" alt="Alfred Hitchcock">
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-2">
+                    <a ng-click="showDirector(240)" class="thumbnail">
+                        <img src="http://image.tmdb.org/t/p/w185/26PWfKliwIsA2f4sIWeJRNnPgVC.jpg" alt="Stanley Kubrick">
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-2">
+                    <a ng-click="showDirector(8500)" class="thumbnail">
+                        <img src="http://image.tmdb.org/t/p/w185/nwkPz2ytSBiv1zFhrcg4kYJIK3d.jpg" alt="John Ford">
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-2">
+                    <a ng-click="showDirector(1150)" class="thumbnail">
+                        <img src="http://image.tmdb.org/t/p/w185/c61HFkgbl61KzvwAvuuROgn7nqv.jpg" alt="Brian De Palma">
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-2">
+                    <a ng-click="showDirector(11770)" class="thumbnail">
+                        <img src="http://image.tmdb.org/t/p/w185/5Xv3IyZaXJ2qw4ZgRmuIcdtU8xU.jpg" alt="John Carpenter">
+                    </a>
+                </div>
+            </div>
+
+            <hr>
+
+            <div ng-show="director" class="panel panel-default">
+                <div class="panel-body">
+                    <h2>{{director.name}}</h2>
+                    <ul class="list-unstyled">
+                        <li>Birthdate : {{director.birthDate.year}}-{{director.birthDate.monthValue}}-{{director.birthDate.day}}</li>
+                        <li ng-show="director.deathDate.present">
+                            Day of death : {{director.deathDate.value.year}}-{{director.deathDate.value.monthValue}}-{{director.deathDate.value.day}}
+                        </li>
+                    </ul>
+                    <h2>Filmography :</h2>
+                    <div ng-show="filmography.map.Director">
+                        <h3>As a director</h3>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Year</th>
+                                    <th>Title</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="movie in filmography.map.Director">
+                                    <th>{{movie.releaseDate.year}}</th>
+                                    <th>
+                                        <a ng-click="showMovie(movie.id)">{{movie.title}}</a>
+                                        <div class="media" ng-show="fullMovie.id && (fullMovie.id == movie.id)" ng-animate="{show: 'fadeIn', hide:'fadeOut'}">
+                                            <div ng-show="fullMovie.poster != 'null'" class="pull-left">
+                                                <img class="media-object" ng-src="http://image.tmdb.org/t/p/w185/{{fullMovie.poster}}">
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">Overview</h4>
+                                                {{fullMovie.overview}}
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div ng-show="filmography.map.Screenplay">
+                    <h3>As a scenarist</h3>
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Title</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="movie in filmography.map.Screenplay">
+                                <th>{{movie.releaseDate.year}}</th>
+                                <th>
+                                    <a ng-click="showMovie(movie.id)">{{movie.title}}</a>
+                                    <div class="media" ng-show="fullMovie.id && (fullMovie.id == movie.id)" ng-animate="{show: 'fadeIn', hide:'fadeOut'}">
+                                        <div ng-show="fullMovie.poster != 'null'" class="pull-left">
+                                            <img class="media-object" ng-src="http://image.tmdb.org/t/p/w185/{{fullMovie.poster}}">
+                                        </div>
+                                        <div class="media-body">
+                                            <h4 class="media-heading">Overview</h4>
+                                            {{fullMovie.overview}}
+                                        </div>
+                                    </div>
+                                </th>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div ng-show="filmography.map.Producer">
+                        <h3>As a producer</h3>
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Title</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="movie in filmography.map.Producer">
+                                <th>{{movie.releaseDate.year}}</th>
+                                <th>
+                                    <a ng-click="showMovie(movie.id)">{{movie.title}}</a>
+                                    <div class="media" ng-show="fullMovie.id && (fullMovie.id == movie.id)" ng-animate="{show: 'fadeIn', hide:'fadeOut'}">
+                                        <div ng-show="fullMovie.poster != 'null'" class="pull-left">
+                                            <img class="media-object" ng-src="http://image.tmdb.org/t/p/w185/{{fullMovie.poster}}">
+                                        </div>
+                                        <div class="media-body">
+                                            <h4 class="media-heading">Overview</h4>
+                                            {{fullMovie.overview}}
+                                        </div>
+                                    </div>
+                                </th>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/webjars/angularjs/1.2.16/angular.min.js"></script>
+<script src="/webjars/angularjs/1.2.16/angular-animate.min.js"></script>
+<script src="app.js"></script>
